@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MapTracks</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/button.css">
+
+    <!-- Javascript for delete playlist -->
+    <script type="text/javascript" src="js/index-functions.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <meta charset="utf-8"/>
+    <!-- <meta http-equiv = "refresh" content = " 0 ; url = /refresh_token"/> -->
+
+    <script type='text/javascript'
+            src='https://www.bing.com/api/maps/mapcontrol?callback=initMap&key=AvxdN6vJwelarUHa_iBvCfFORvhYtUIIKWFl24NYZlANiZH5v16AQjIIFlvLgKVd'
+            async defer></script>
+
+    <script>
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return pair[1];
+                }
+            }
+            return (false);
+        }
+
+        function showUsername(uname) {
+            document.getElementById("username-element").innerHTML = uname;
+        }
+        
+        var access_token = getQueryVariable("access_token");
+        var refresh_token = getQueryVariable("refresh_token");
+        var time = getQueryVariable("time");
+        var id = getQueryVariable("id");
+        var username = getQueryVariable("u");
+    </script>
+</head>
+<body>
+
+<!-- Top section map -->
+<div class="map-container" id="top-section">
+    <div class="sticky-header">
+        <p class="header-title">MapTracks</p>
+
+        <div class="header-user-profile">
+            <a id="username-element" href="account.html" class="header-action" target="_blank">
+                {user}
+            </a>
+
+            <a href="account.html" target="_blank"><img src="img/avatar.svg" alt="Profile pic"></a>
+        </div>
+    </div>
+
+    <!-- The main map -->
+    <div id="mapatron" class="map"></div>
+
+    <!-- Side input/output panel -->
+    <div class="side-panel-container">
+        <div id='directionsInputContainer' style="background: #ffffff"></div>
+        <div id="directionsItinerary" style="opacity: 0"></div>
+    </div>
+
+    <p class="scroll-down"><a href="#bottom-section" class="scroll-down-animate"></a></p>
+</div>
+
+<!-- Bottom section containing the rest of the stuff -->
+<div class="bottom-section-container" id="bottom-section">
+
+    <div class="top-banner">
+        <div class="top-banner-info">
+            <p class="top-banner-info-title">Mode of transport</p>
+            <p id="display-transport-type">Car</p>
+        </div>
+
+        <div class="top-banner-info">
+            <p class="top-banner-info-title">Journey duration</p>
+            <p id="display-journey-duration">2 hours 40 minutes</p>
+        </div>
+
+        <p class="scroll-up"><a href="#top-section" class="scroll-up-animate"></a></p>
+
+        <div class="top-banner-info">
+            <p class="top-banner-info-title">Starting point</p>
+            <p id="display-start">Edinburgh</p>
+        </div>
+
+        <div class="top-banner-info">
+            <p class="top-banner-info-title">Destination</p>
+            <p id="display-destination">Aberdeen</p>
+        </div>
+    </div>
+
+    <audio id="previewSong" controls="controls" style="display: none">
+        <source id="previewSongSource" src="" type="audio/mpeg"/>
+    </audio>
+
+    <!-- Right hand side of page for the playlist view. -->
+    <div class="playlist-view">
+        <div class="inline-container">
+            <a id="generatePlaylist" class="funkyButton generatePlaylistButton">Generate playlist</a>
+            <p class="pv-title">Your playlists</p>
+        </div>
+        <div class="playlist-container">
+            <div class="playlist-items-container">
+                <!-- <p id="pv-message" class="pv-message">You don't have any playlists!</p> -->
+
+                <!-- <div class="vertical-container-item">
+                    <hr>
+                    <div class="playlist-item-details">
+                        <p class="playlist-item-details-title">Playlist name</p>
+                        <p class="playlist-item-details-name">Edinburgh to Aberdeen 1</p>
+
+                        <p class="playlist-item-details-title">Duration</p>
+                        <p class="playlist-item-details-duration">2 hrs 40 mins</p>
+                    </div> -->
+
+                <!-- <div class="playlist-item-controls">
+                    <button class="funkyButton smallButton" style="margin-right: 125px;">Add to queue</button>
+                    <a id="delete-button" class="delete-button" role="button">
+                        <span id="delete-step1" onclick="deletePlaylist()">Delete</span>
+                        <div id="delete-step2" onclick="confirmDelete()" class="delete-confirm">
+                            Confirm
+                        </div>
+                    </a>
+                </div> -->
+                <br>
+                <hr>
+            </div>
+            <div class="generated-playlist-container">
+                <!-- <p id="pv-message" class="pv-message">You don't have any generated playlists!</p> -->
+
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript" src="js/spotifyRequests.js"></script>
+    
+<script type="text/javascript" src="js/cookies.js"></script>
+    
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+     
+  </head>
+  <body id="body">
+   <!-- <?php
+      //include 'header.php';
+    ?> -->
+    <!-- Need to make a php file for the header to work-->
+    <div class="form">
+      <form action="/log_in" method="POST">
+        <div class="title">
+          <i class="fas fa-pencil-alt"></i>
+          <h2>Login here</h2>
+        </div>
+        <div class="info">
+          <input type="text" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Password">
+        </div>
+        <button type="submit" href="account.html">Submit</button>
+        <p> or register <a href="register.html">here</a> </p>
+      </form>
+    </div>
+  </body>
+    
+    <script>
+        var didUserEnterIncorrectPW = window.location.href.indexOf("incorrect") !== -1;
+        if (didUserEnterIncorrectPW) {
+            alert("Incorrect username or password!")
+        }
+    </script>
+    
+  </html>

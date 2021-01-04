@@ -1,0 +1,87 @@
+.funkyButton {
+    outline: none;
+    text-decoration: none;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    opacity: 1;
+    background-color: #1DB954;
+    border: 2px solid #1DB954;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.generatePlaylistButton {
+    height: 60px;
+    width: 210px;
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    text-transform: uppercase;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.spotifyButton{
+  text-align: center;
+  padding: 2px;
+  width: 200px;
+  height: auto;
+}
+
+.smallButton {
+    z-index: 1000;
+    display: inline-block;
+}
+
+.funkyButton span {
+    color: #1DB954;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+}
+
+.funkyButton:hover {
+    animation: rotate 0.7s ease-in-out both;
+}
+
+.funkyButton:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    25% {
+        transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+    50% {
+        transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+    75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+}
+
+@keyframes storm {
+    0% {
+        transform: translate3d(0, 0, 0) translateZ(0);
+    }
+    25% {
+        transform: translate3d(4px, 0, 0) translateZ(0);
+    }
+    50% {
+        transform: translate3d(-3px, 0, 0) translateZ(0);
+    }
+    75% {
+        transform: translate3d(2px, 0, 0) translateZ(0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) translateZ(0);
+    }
+}

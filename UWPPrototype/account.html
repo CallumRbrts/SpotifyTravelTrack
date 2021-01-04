@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MapTracks</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/account.css">
+
+    <script type="text/javascript" src="js/index-functions.js"></script>
+</head>
+<body>
+<!-- Header start -->
+<header class="sticky-header">
+    <p class="header-title">Account</p>
+
+    <div class="header-user-profile">
+        <a href="index.html" class="header-action">
+            Home
+        </a>
+    </div>
+
+    <script>
+        function showUsername(uname) {
+            document.getElementById("username-element").innerHTML = uname;
+        }
+
+        function clearCookie() {
+            document.cookie = "username=null";
+            console.log(" CLEARED COOKIE ");
+        }
+    </script>
+</header>
+<!-- Header end -->
+
+
+<!-- Main content start -->
+
+<!-- change password popup -->
+    <div id="password-modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Change password</h2>
+            </div>
+            <div class="modal-body">
+                <div class="form">
+                  <form action="/change_password" method="POST">
+                    <div class="title">
+                      <i class="fas fa-pencil-alt"></i>
+                      <h2>Enter new password</h2>
+                    </div>
+                    <div class="info">
+                      <input type="password" id="password" name="pw" class="interactive-form-element" placeholder="Password" required>
+                      <input type="password" id="confirm_password" class="interactive-form-element" name="pw-conf" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" id= "submit" href="/" class="interactive-form-element smallButton funkyButton">Submit</button>
+                    <p id="message"></p>
+                  </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <main>
+
+        <div style="padding-left: 10%; padding-right: 10%;">
+            <img src="img/avatar.svg" alt="Spotify profile picture" class="spotify-profile-pic">
+            <div class="account-details-container">
+                <p class="account-details-title">Username</p>
+                <p style="margin-left: 20px; margin-top: 0"><a id="username-element"></a></p>
+            </div>
+            <div style="margin-top: 20px;">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><a id="change-password-btn" class="spotifyButton smallButton funkyButton"><p>Change
+                            password</p></a></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="/logout" class="spotifyButton smallButton funkyButton" onclick="clearCookie()"><p>
+                            Logout</p></a></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="/login" class="header__link spotifyButton smallButton funkyButton"><p>Link with
+                            Spotify</p></a></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <p class="vertical-list-title">Saved Playlists</p>
+        <div class="vertical-container" id="saved-playlists-container">
+            <div class="vertical-container-item">
+                <hr>
+                <div class="playlist-item-details">
+                    <p class="playlist-item-details-title">Playlist name</p>
+                    <p class="playlist-item-details-name">Edinburgh to Aberdeen 1</p>
+
+                    <p class="playlist-item-details-title">Duration</p>
+                    <p class="playlist-item-details-duration">2 hrs 40 mins</p>
+                </div>
+
+                <div class="playlist-item-controls">
+                    <button class="funkyButton smallButton" style="margin-right: 115px;">Add to queue</button>
+                    <a id="delete-button" class="delete-button" role="button">
+                        <span onclick="deletePlaylist()">Delete</span>
+                        <div onclick="confirmDelete()" class="delete-confirm">
+                            Confirm
+                        </div>
+                    </a>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        <p class="vertical-list-title">Previous Journeys</p>
+        <div class="vertical-container" id="previous-journeys-container">
+            <div class="vertical-container-item">
+                <hr>
+                <div class="playlist-item-details">
+                    <p class="playlist-item-details-title">Journey</p>
+                    <p class="playlist-item-details-name">Edinburgh to Aberdeen</p>
+
+                    <p class="playlist-item-details-title">Date</p>
+                    <p class="playlist-item-details-duration">20/02/2020</p>
+                </div>
+
+                <div class="playlist-item-controls">
+                    <button style="margin-right: 205px; display: inline-block; visibility: hidden"></button>
+                    <a id="delete-button-journey" class="delete-button" role="button">
+                        <span onclick="deleteJourney()">Forget</span>
+                        <div onclick="confirmDelete()" class="delete-confirm">
+                            Confirm
+                        </div>
+                    </a>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </main>
+    <!-- Main content end -->
+
+    <script type="text/javascript" src="js/cookies.js"></script>
+
+    <script src="js/passwordConfirmationWhite.js"></script>
+
+    <script type="text/javascript" src="js/changePassword.js"></script>
+
+</body>
+</html>
